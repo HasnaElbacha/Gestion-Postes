@@ -1,0 +1,24 @@
+# Récupérer toutes les catégories
+GET http://localhost:3000/categories
+
+# Récupérer une catégorie avec un ID spécifique
+GET http://localhost:3000/categories/123
+
+# Créer une nouvelle catégorie
+POST http://localhost:3000/categories
+Content-Type: application/json
+
+{
+  "nom": "Nouvelle catégorie"
+}
+
+# Mettre à jour une catégorie existante
+PATCH http://localhost:3000/categories/123
+Content-Type: application/json
+
+{
+  "nom": "Nouveau nom"
+}
+
+# Supprimer une catégorie existante
+DELETE http://localhost:3000/categories/123

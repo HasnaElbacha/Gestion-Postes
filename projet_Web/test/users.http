@@ -1,0 +1,26 @@
+# Récupérer tous les utilisateurs
+GET http://localhost:3000/users
+
+# Récupérer un utilisateur avec un ID spécifique
+GET http://localhost:3000/users/123
+
+# Créer un nouvel utilisateur
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "nom": "John Doe",
+  "email": "john.doe@example.com",
+  "motDePasse": "password123"
+}
+
+# Mettre à jour un utilisateur existant
+PATCH http://localhost:3000/users/123
+Content-Type: application/json
+
+{
+  "nom": "Jane Doe"
+}
+
+# Supprimer un utilisateur existant
+DELETE http://localhost:3000/users/123

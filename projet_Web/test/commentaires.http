@@ -1,0 +1,26 @@
+# Récupérer tous les commentaires
+GET http://localhost:3000/commentaires
+
+# Récupérer un commentaire avec un ID spécifique
+GET http://localhost:3000/commentaires/123
+
+# Créer un nouveau commentaire
+POST http://localhost:3000/commentaires
+Content-Type: application/json
+
+{
+  "texte": "Nouveau commentaire",
+  "auteur": "John Doe",
+  "article": "123"
+}
+
+# Mettre à jour un commentaire existant
+PATCH http://localhost:3000/commentaires/123
+Content-Type: application/json
+
+{
+  "texte": "Nouveau texte"
+}
+
+# Supprimer un commentaire existant
+DELETE http://localhost:3000/commentaires/123

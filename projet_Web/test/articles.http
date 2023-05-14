@@ -1,0 +1,28 @@
+# Récupérer tous les articles
+GET http://localhost:3000/articles
+
+# Récupérer un article avec un ID spécifique
+###
+GET http://localhost:3000/articles/123
+
+# Créer un nouvel article
+###
+POST http://localhost:3000/articles
+Content-Type: application/json
+
+{
+  "titre": "Nouvel article",
+  "contenu": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "categorie": "science"
+}
+
+# Mettre à jour un article existant
+PATCH http://localhost:3000/articles/123
+Content-Type: application/json
+
+{
+  "contenu": "Nouveau contenu"
+}
+
+# Supprimer un article existant
+DELETE http://localhost:3000/articles/123
