@@ -1,82 +1,79 @@
 const express = require('express');
 const router = express.Router();
-const Commentaire = require('../models/commentaire');
-
-// Récupérer tous les commentaires
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
+// GET /commentaires
 router.get('/', async (req, res) => {
   const take = parseInt(req.query.take) || 10;
   const skip = parseInt(req.query.skip) || 0;
-
   try {
-    const commentaires = await Commentaire.find().limit(take).skip(skip);
+    const commentaires = await prisma.commentaire.findMany({
+      take,
+      skip,
+    });
     res.json(commentaires);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
-
-// Récupérer un commentaire par son id
-router.get('/:id', getCommentaire, (req, res) => {
-  res.json(res.commentaire);
-});
-
-// Ajouter un commentaire
-router.post('/', async (req, res) => {
-  const commentaire = new Commentaire({
-    email: req.body.email,
-    contenu: req.body.contenu
-  });
-
+  } catch (error) {
+    res.status(500).json({ erreur: 'Erreur interne du serveur' });
+  }});
+// GET /commentaires/:id
+router.get('/:id', async (req, res) => {
+  const { id } = req.params;
   try {
-    const newCommentaire = await commentaire.save();
-    res.status(201).json(newCommentaire);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-});
-
-// Mettre à jour un commentaire
-router.patch('/:id', getCommentaire, async (req, res) => {
-  if (req.body.email != null) {
-    res.commentaire.email = req.body.email;
-  }
-  if (req.body.contenu != null) {
-    res.commentaire.contenu = req.body.contenu;
-  }
-
-  try {
-    const updatedCommentaire = await res.commentaire.save();
-    res.json(updatedCommentaire);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-});
-
-// Supprimer un commentaire
-router.delete('/:id', getCommentaire, async (req, res) => {
-  try {
-    await res.commentaire.remove();
-    res.json({ message: 'Commentaire supprimé' });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
-
-// Middleware pour récupérer un commentaire en fonction de son id
-async function getCommentaire(req, res, next) {
-  let commentaire;
-  try {
-    commentaire = await Commentaire.findById(req.params.id);
-    if (commentaire == null) {
-      return res.status(404).json({ message: 'Commentaire non trouvé' });
+    const commentaire = await prisma.commentaire.findUnique({
+      where: {
+        id: parseInt(id),
+      },});
+    if (!commentaire) {
+      return res.status(404).json({ erreur: 'Commentaire introuvable' });
     }
-  } catch (err) {
-    return res.status(500).json({ message: err.message });
-  }
-
-  res.commentaire = commentaire;
-  next();
-}
-
+    res.json(commentaire);
+  } catch (error) {
+    res.status(500).json({ erreur: 'Erreur interne du serveur' });
+  }});
+// POST /commentaires
+router.post('/', async (req, res) => {
+  try {
+    const { email, contenu ,articleId} = req.body;
+    const commentaire = await prisma.commentaire.create({
+      data: {
+        email,
+        contenu,
+        article:{
+          connect:{id:+articleId}
+            },
+      },});
+   res.status(201).json(commentaire);
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ erreur: 'Erreur interne du serveur' });
+  }});
+// PATCH /commentaires/:id
+router.patch('/:id', async (req, res) => {
+  const { id } = req.params;
+  const { email, contenu } = req.body;
+  try {
+    const commentaire = await prisma.commentaire.update({
+      where: {
+        id: parseInt(id),
+      },
+      data: {
+        email,
+        contenu,
+      },});
+  res.json(commentaire);
+  } catch (error) {
+    res.status(500).json({ erreur: 'Erreur interne du serveur' });
+  }});
+// DELETE /commentaires/:id
+router.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    await prisma.commentaire.delete({
+      where: {
+        id: parseInt(id),
+      },});
+    res.json({ message: 'Commentaire supprimé' });
+  } catch (error) {
+    res.status(500).json({ erreur: 'Erreur interne du serveur' });
+  }});
 module.exports = router;
-

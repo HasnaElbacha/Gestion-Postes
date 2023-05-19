@@ -8,6 +8,11 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+// Enumération Role
+enum Role {
+  ADMIN
+  AUTHOR
+}
 // model Utilisateur
 model Utilisateur {
   id       Int       @id @default(autoincrement())
@@ -20,12 +25,12 @@ model Utilisateur {
 // model Article
 model Article {
   id          Int          @id @default(autoincrement())
-  titre       String       @db.VarChar(30)
+  titre       String       @db.VarChar(35)
   contenu     String       @db.VarChar(255)
   image       String
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
-  published   Boolean
+  published   Boolean      @default(false)
   auteur      Utilisateur  @relation("auteurArticles", fields: [auteurId], references: [id])
   auteurId    Int
   categories  Categorie[]  
@@ -43,13 +48,9 @@ model Commentaire {
   email      String
   contenu    String
   article    Article  @relation(fields: [articleId], references: [id])
-  articleId  Int      @unique
+  articleId  Int      
 }
-// Enumération Role
-enum Role {
-  ADMIN
-  AUTHOR
-}
+
 
 
 

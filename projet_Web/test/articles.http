@@ -3,7 +3,7 @@ GET http://localhost:3000/articles
 
 # Récupérer un article avec un ID spécifique
 ###
-GET http://localhost:3000/articles/123
+GET http://localhost:3000/articles/1
 
 # Créer un nouvel article
 ###
@@ -11,18 +11,23 @@ POST http://localhost:3000/articles
 Content-Type: application/json
 
 {
-  "titre": "Nouvel article",
-  "contenu": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  "categorie": "science"
+  "titre": "Découvrez le sac polyvalent qui révolutionnera votre quotidien !",
+  "contenu": "Aujourd'hui, nous sommes ravis de vous présenter le sac ultime qui vous accompagnera dans toutes vos aventures : le sac polyvalent révolutionnaire ! Que vous soyez un étudiant, un voyageur passionné ou un professionnel actif, ce sac est conçu pour répondre à tous vos besoins.",
+  "image":"gjgjgjgjgj",
+  "published":true,
+  "auteurId":1,
+  "categories": [1,2]
 }
 
 # Mettre à jour un article existant
-PATCH http://localhost:3000/articles/123
+###
+PATCH http://localhost:3000/articles/1
 Content-Type: application/json
 
 {
-  "contenu": "Nouveau contenu"
+  "contenu": "Êtes-vous prêts à vivre une expérience de jeu inégalée ? Nous sommes ravis de vous présenter le PC Gaming ultime qui repousse toutes les limites et vous propulse vers de nouveaux horizons virtuels !"
 }
 
 # Supprimer un article existant
-DELETE http://localhost:3000/articles/123
+###
+DELETE http://localhost:3000/articles/1
