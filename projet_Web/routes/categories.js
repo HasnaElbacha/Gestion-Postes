@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { isAuthenticated, isAdmin } = require('../middlewares/authMiddleware');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 // GET /categories
@@ -72,4 +73,16 @@ router.delete('/:id', async (req, res) => {
   } catch (error) {
     res.status(500).json({ erreur: 'Erreur interne du serveur' });
   }});
+  /********************************** */
+// Route protégée nécessitant une authentification
+router.get('/categories', isAuthenticated, (req, res) => {
+ 
+  res.json({ categories });
+});
+// Route protégée nécessitant une authentification et un rôle d'administrateur
+router.post('/categories', isAuthenticated, isAdmin, (req, res) => {
+
+  res.json({ message: 'Catégorie créée avec succès' });
+});
+  /************************************/
 module.exports = router;

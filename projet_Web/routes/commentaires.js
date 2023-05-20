@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { PrismaClient } = require('@prisma/client');
+const { isAuthenticated } = require('../middlewares/authMiddleware');
 const prisma = new PrismaClient();
 // GET /commentaires
 router.get('/', async (req, res) => {
@@ -76,4 +77,18 @@ router.delete('/:id', async (req, res) => {
   } catch (error) {
     res.status(500).json({ erreur: 'Erreur interne du serveur' });
   }});
+  /********************************/
+
+// Route protégée nécessitant une authentification
+router.get('/commentaires', isAuthenticated, (req, res) => {
+
+  res.json({ commentaires });
+});
+
+// Route protégée nécessitant une authentification
+router.post('/commentaires', isAuthenticated, (req, res) => {
+  res.json({ message: 'Commentaire créé avec succès' });
+});
+
+  /*******************************/
 module.exports = router;

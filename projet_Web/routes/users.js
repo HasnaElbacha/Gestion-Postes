@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+const { isAuthenticated, isAdmin } = require('../middlewares/authMiddleware');
 /*****************************************/
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
@@ -74,7 +74,17 @@ router.delete('/:id', async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
-module.exports = router;
+/*************************************** */
+// Route protégée nécessitant une authentification
+router.get('/users', isAuthenticated, (req, res) => {
+  res.json({ users });
+});
+// Route protégée nécessitant une authentification et un rôle d'administrateur
+router.delete('/users/:id', isAuthenticated, isAdmin, (req, res) => {
+  res.json({ message: 'Utilisateur supprimé avec succès' });
+});
 /*****************************************/
+module.exports = router;
+
 
 

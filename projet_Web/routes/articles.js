@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { PrismaClient } = require('@prisma/client');
+const { isAuthenticated } = require('../middlewares/authMiddleware');
 const prisma = new PrismaClient();
 // GET /articles
 router.get('/', async (req, res) => {
@@ -99,5 +100,16 @@ router.delete('/:id', async (req, res) => {
     res.status(500).json({ erreur: 'Erreur interne du serveur' });
   }
 });
+/***********************************/
 
+// Route protégée nécessitant une authentification
+router.get('/articles', isAuthenticated, (req, res) => {
+  res.json({ articles });
+});
+
+// Route protégée nécessitant une authentification
+router.post('/articles', isAuthenticated, (req, res) => {
+  res.json({ message: 'Article créé avec succès' });
+});
+/***********************************/
 module.exports = router;
