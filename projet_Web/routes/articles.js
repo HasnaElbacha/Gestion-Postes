@@ -5,7 +5,7 @@ const { isAuthenticated } = require('../middlewares/authMiddleware');
 const prisma = new PrismaClient();
 // GET /articles
 router.get('/', async (req, res) => {
-  const take = parseInt(req.query.take) || 10;
+  const take = parseInt(req.query.take) || 9;
   const skip = parseInt(req.query.skip) || 0;
   try {
     const articles = await prisma.article.findMany({

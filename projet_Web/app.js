@@ -17,19 +17,21 @@ var usersRouter = require('./routes/users');
 var articlesRouter=require('./routes/articles');
 var commentairesRouter=require('./routes/commentaires');
 var categoriesRouter=require('./routes/categories');
-
+var categoriesRouterId=require('./routes/categories');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));//Permet de simplifier le chemin des fichiers existent a l'interieur de public
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/articles', articlesRouter);
 app.use('/categories', categoriesRouter);
+// app.use('/categories/:id', categoriesRouterId);
 app.use('/commentaires', commentairesRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -83,4 +85,5 @@ passport.use(new JwtStrategy(jwtOptions, async (payload, done) => {
 // Initialiser Passport.js
 app.use(passport.initialize());
 //********************************* */
+  
 module.exports = app;

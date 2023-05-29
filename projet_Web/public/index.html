@@ -4,9 +4,430 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,500,500i,600,600i,700,700i,900,900i" rel="stylesheet">
+    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="./vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="./vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="./vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <title>ElbachaBlog</title>
 </head>
 <body>
-    <h1>HIII hasna</h1>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo"><img src="images/logo2.jpg" alt="" class="img-fluid" ></a>
+      <!--  #F5BE87-->
+      <!-- navbar-->
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Accueil</a></li>
+          <li><a class="nav-link scrollto" href="#services">Blog</a></li>
+          <li><a class="nav-link  scrollto" href="#portfolio">Inscription</a></li>
+          <li><a class="nav-link  scrollto" href="#journal">connexion</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header>
+  <!-- End Header -->
+    <!-- ======= Hero Section ======= -->
+    <div id="hero" class="home">
+
+      <div class="container">
+        <div class="hero-content">
+          <h1><span class="typed" data-typed-items=" bienvenu chez, nous à, blog Elbacha"></span></h1>
+          <p>Accessibilité, Économies, Large choix, Livraison</p>
+  
+          <ul class="list-unstyled list-social">
+            <li><a href="https://www.facebook.com/hasna.elb.16/"><i class="bi bi-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com/hasna_elbacha/"><i class="bi bi-instagram"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/hasna-elbacha-455303247"><i class="bi bi-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- End Hero -->
+    <!-- ******************************    Semaire categories ************************* -->
+
+    <!--  -->
+    <main id="main">
+  <!-- ======= Services Section ======= -->
+  
+  <div id="services">
+    
+    <div class="containerarticle ">
+      <br><br><br>
+      <div class="section-title text-center">
+        <h2>Articles<hr></hr></h2>
+      </div>
+      
+      <div class="wrapper">
+         <!-- Sidebar    -->
+       <nav id="sidebar">
+        <div id="content">
+          <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+              <div class="container-fluid">
+                  <button type="button" id="sidebarCollapse" class="btn btn-info">
+                      <i class="fas fa-align-left"></i>
+                      <img id= "imgmenu" src="../images/menu.png" alt="">
+                  </button>
+                  <!-- <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <i class="fas fa-align-justify"></i>
+                  </button> -->
+              </div>
+          <!-- </nav> -->
+        </div>
+          <div class="sidebar-header">
+              <h3>Categories</h3>
+          </div>
+          <ul class="list-unstyled ">
+            <div id="components">
+
+            </div>
+              
+          </ul>
+      </nav>
+       <!-- Page Content    -->
+      
+  </div>     
+    </div>
+      <div id="divContainer" class="row">
+       
+  </div><!-- End Services Section -->
+
+  <!-- ======= Portfolio Section ======= -->
+  <div id="portfolio" class="paddsection">
+
+    <div class="container">
+      <div class="section-title text-center">
+        <h2>Inscription<hr></hr></h2><br><br><br>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="col-lg-4 col-md-6 .parent-element ">
+            <div class="signupSection">
+             <div class="info">
+               <h2>merci de remplir ce formulaire</h2>
+               <i class="icon ion-ios-ionic-outline" aria-hidden="true"></i>
+               <p>vous voulez être membre de notre blog</p>
+             </div>
+             <form  id="signup" class="signupForm" name="signupform">
+               <h2>S'inscrire</h2>
+               <ul class="noBullet">
+                 <li>
+                   <label for="username"></label>
+                   <input type="text" class="inputFields" id="username" name="nom" placeholder="Votre nom" value=""  required/>
+                 </li>
+                 <li>
+                   <label for="password"></label>
+                   <input type="password" class="inputFields" id="passwordI" name="password" placeholder="Votre mot de passe" value=""  required/>
+                 </li>
+                 <li>
+                   <label for="email"></label>
+                   <input type="email" class="inputFields" id="emailI" name="email" placeholder="Votre email" value="" required/>
+                 </li>
+                 <li id="center-btn">
+                   <input type="submit" id="join-btnI" name="join" alt="Join" value="Valider">
+                 </li>
+               </ul>
+             </form>
+           </div>
+         </div>
+          <div class="portfolio-info  apparaition">
+            <h4 >Faire L'inscription pour etre membre de notre blog</h4>
+        </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- End Portfolio Section -->
+
+  <!-- ======= Journal Section ======= -->
+   <div id="journal" class="text-left paddsection  divconnexion"> -->
+    <div class="container ">
+      <div class="section-title text-center  titreconnexion">
+        <h2>Connxion<hr></hr></h2><br><br><br>
+      </div>
+    </div>
+    <div class="containerr">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="col-lg-4 col-md-6 .parent-element ">
+            <div class="signinSection">
+             <form  id="signin" class="signinForm" name="signinform">
+               <h2>Connexion</h2>
+               <ul class="noBullet">
+                <li>
+                  <label for="email"></label>
+                  <input type="email" class="inputFields" id="emailC" name="email" placeholder="Votre email" value="" required/>
+                </li>
+                 <li>
+                   <label for="password"></label>
+                   <input type="password" class="inputFields" id="passwordC" name="password" placeholder="Votre mot de passe" value=""  required/>
+                 </li>
+
+                 <li id="center-btn">
+                   <input type="submit" id="join-btnC" name="join" alt="Join" value="Valider">
+                 </li>
+               </ul>
+             </form>
+           </div>
+         </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- End Journal Section  -->
+ <!--  ********************* Ajouter Article **************************** -->
+  <!-- <div class="container"> 
+  <h1>Formulaire Bootstrap</h1>
+  <form>
+    <div class="form-group">
+      <label for="titre">Titre</label>
+      <input type="text" class="form-control" id="titre" placeholder="Entrez le titre">
+    </div>
+    <div class="form-group">
+      <label for="contenu">Contenu</label>
+      <textarea class="form-control" id="contenu" rows="3" placeholder="Entrez le contenu"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input type="file" class="form-control-file" id="image">
+    </div>
+    <button type="submit" class="btn btn-primary">Soumettre</button>
+  </form>
+</div> --> 
+  <!-- ======= Journal Section ======= -->
+  <div id="hidden" class="section-title text-center  titreajoute "> 
+    <h2>Ajouter nouveau article<hr></hr></h2><br><br><br>
+  </div>
+  <div  class="mt-5 containeraj">
+    <form id="Ajouterarticle" class="row g-3">
+        <div class="col-md-6">
+          <label for="inputtitre" class="form-label " >Titre</label>
+          <input type="text" class="form-control" id="inputtitre" placeholder="Entrez le titre">
+        </div>
+        <div class="col-md-6">
+          <label for="inputcontenu" class="form-label">Contenu</label>
+          <textarea class="form-control" id="inputcontenu"  placeholder="Entrez le contenu"></textarea>
+        </div>
+        <div class="col-md-6">
+          <label for="inputcategorie" class="form-label">Categorie</label>
+          <textarea class="form-control" id="inputcategorie"  placeholder="Entrez la categorie"></textarea>
+        </div>
+        <div class="col-12">
+          <label for="inputimage" class="form-label">Poste</label>
+          <input type="file" class="form-control" id="inputimage" placeholder="Inserez le poste">
+        </div>
+        
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+      </form>
+</div>  
+ <!-- ********************************************************************--> 
+</main>
+<!-- End #main--> 
+
+<!-- ======= Footer ======= -->
+ <div id="footer" class="text-center"> 
+  <div class="container">
+    <div class="socials-media text-center">
+      <ul class="list-unstyled">
+        <li><a href="https://www.facebook.com/hasna.elb.16/"><i class="bi bi-facebook"></i></a></li>
+        <li><a href="https://www.instagram.com/hasna_elbacha/"><i class="bi bi-instagram"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/hasna-elbacha-455303247"><i class="bi bi-linkedin"></i></a></li>
+      </ul>
+    </div>
+    <p>&copy; Réalisée par Elbacha Hasna . 2023</p>
+    <div class="credits">
+      ELBACHA BLOG
+    </div>
+  </div>
+</div> 
+<!-- End Footer -->
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <script src="./javascripts/script.js"></script>
+    <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="./vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="./vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="./vendor/typed.js/typed.min.js"></script>
+    <script src="./vendor/php-email-form/validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>  -->
+    <script>
+      function login(email,password) {
+  const userData={email,password}
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: '/login',
+      method: 'POST',
+      data: userData,
+      success: resolve,
+      error: reject
+    });
+  });
+}
+$('#signin').submit(function (event) {
+  event.preventDefault(); // Empêche le comportement par défaut du formulaire
+
+  // Récupérer les valeurs des champs de saisie
+
+  var passValue = $('#passwordC').val();
+  var emailValue = $('#emailC').val();
+
+
+  // Appeler la fonction signup avec les valeurs récupérées
+  login(emailValue, passValue)
+    .then(function (response) {
+      // Traitement en cas de succès de la requête AJAX
+      console.log(response.message);
+      alert('Connexion réussie');
+
+      if (response.message === 'Connexion réussie.admin') {
+        
+        setTimeout(function () {
+          // $('#contact').show();
+          // $('#journal').hide();
+          // console.log("hiiiiiii")
+          afficherDivsavecmisajour(1);
+        }, 2000);
+      } else if(response.message === 'Connexion réussie.autre'){
+        setTimeout(function () {
+          $('#contact').show();
+          $('#journal').hide();
+          console.log("hiiiiiii")
+        }, 2000);
+      }
+      else {
+        $('#contact').hide();
+        $('#journal').show();
+        console.log("ooooooh")
+      }
+    })
+    .catch(function (error) {
+      // Traitement en cas d'erreur de la requête AJAX
+      console.log(error)
+      alert(error);
+    });
+
+  // Réinitialiser le formulaire si nécessaire
+  $('#signin')[0].reset();
+});
+//*****************   Inscription ********************
+function signup(nom,email,password) {
+  const userData={nom,email,password}
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: '/signup',
+      method: 'POST',
+      data: userData,
+      success: resolve,
+      error: reject
+    });
+  });
+}
+$('#signup').submit(function (event) {
+  event.preventDefault(); // Empêche le comportement par défaut du formulaire;
+  // Récupérer les valeurs des champs de saisie
+  var nomValue = $('#username').val();
+  var passValue = $('#passwordI').val();
+  var emailValue = $('#emailI').val();
+
+signup(nomValue,emailValue, passValue)
+    .then(function (response) {
+      // Traitement en cas de succès de la requête AJAX
+      // console.log(response.message);
+      if (response.message === 'Opération est réussi!') {
+        setTimeout(function () {
+          $('#contact').show();
+          $('#journal').hide();
+          console.log("hiiiiiii")
+          
+        }, 2000);
+        alert('L\'inscription est réussie');
+      } else {
+        $('#contact').hide();
+        $('#journal').show();
+        console.log("ooooooh")
+        alert(response.message);
+      }
+    })
+    .catch(function (error) {
+      // Traitement en cas d'erreur de la requête AJAX
+      console.log(error)
+      alert(error);
+    });
+
+  // Réinitialiser le formulaire si nécessaire
+  $('#signup')[0].reset();
+});
+//***************************************
+function Ajouterarticle(titre,contenu,image,categorie) {
+  console.log("bidayaaa")  
+  const userData={titre,contenu,image,categorie}
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: '/Ajouterarticle',
+      method: 'POST',
+      data: userData,
+      success: resolve,
+      error: reject
+    });
+    console.log("finnfnct")  
+  });
+}
+$('#Ajouterarticle').submit(function (event) {
+  event.preventDefault(); // Empêche le comportement par défaut du formulaire;
+  // Récupérer les valeurs des champs de saisie
+  var titreValue = $('#inputtitre').val();
+  var contenuValue = $('#inputcontenu').val();
+  var imageValue = $('#inputimage').val();
+  var categorieValue = $('#inputcategorie').val();
+  console.log("jjjjjjj")  
+  Ajouterarticle(titreValue,contenuValue, imageValue,categorieValue)
+    .then(function (response) {
+      // Traitement en cas de succès de la requête AJAX
+      // console.log(response.message);
+      console.log("kkkkkk")  
+      if (response.message === 'Opération est réussi!') {
+        // setTimeout(function () {
+        //   $('#contact').show();
+        //   $('#journal').hide();
+          console.log("hiiiiiii")  
+        // }, 2000);
+        alert('L\'ajoute est réussie');
+      } else {
+        // $('#contact').hide();
+        // $('#journal').show();
+        console.log("ooooooh")
+        alert('Opération échoué');
+      }
+    })
+    .catch(function (error) {
+      // Traitement en cas d'erreur de la requête AJAX
+      console.log(error)
+      alert(error);
+    });
+  // Réinitialiser le formulaire si nécessaire
+  $('#Ajouterarticle')[0].reset();
+});
+
+    </script>
+    <!-- <script type="module" src="../auth/auth.js"></script> -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  -->
 </body>
 </html>

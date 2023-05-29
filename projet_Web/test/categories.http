@@ -3,7 +3,7 @@ GET http://localhost:3000/categories
 
 # Récupérer une catégorie avec un ID spécifique
 ###
-GET http://localhost:3000/categories/1
+GET http://localhost:4000/categories/113
 
 # Créer une nouvelle catégorie
 ###
